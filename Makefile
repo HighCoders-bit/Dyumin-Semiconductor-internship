@@ -4,6 +4,7 @@ PWD :=$(shell pwd)
 export PYTHONPATH := $(PWD)/../model:$(PYTHONPATH)
 # Verilog source files
 VERILOG_SOURCES := $(PWD)/dut.v
-MODULE=test 
+du:
+${MAKE}sim MODULE=test 
 TOPLEVEL=dut
 include $(shell cocotb-config --makefiles)/Makefile.sim
