@@ -1,7 +1,9 @@
 SIM ?= icarus
 TOPLEVEL_LANG ?= VERILOG
-PROJECT_DIR :=$(shell pwd)
+PWD :=$(shell pwd)
+export PYTHONPATH := $(PWD)/../model:$(PYTHONPATH)
 # Verilog source files
-VERILOG_SOURCES := $(PROJECT_DIR)/dut.v
-$(MAKE) sim MODULE=test TOPLEVEL=test
+VERILOG_SOURCES := $(PWD)/dut.v
+MODULE=test 
+TOPLEVEL=dut
 include $(shell cocotb-config --makefiles)/Makefile.sim
